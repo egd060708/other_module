@@ -1,2 +1,2 @@
-# webots_module
-webots module for my lib
+# other_module
+other module for my lib
