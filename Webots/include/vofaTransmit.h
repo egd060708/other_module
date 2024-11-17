@@ -5,9 +5,10 @@
 #include <Windows.h>
 
 using namespace std;
+#define DNUM 14
 
 typedef struct _vofaFrame {
-	float fdata[21];
+	float fdata[DNUM];
 	unsigned char tail[4]{ 0x00, 0x00, 0x80, 0x7f };
 }vofaFrame;
 
@@ -28,7 +29,7 @@ public:
 		// 关闭子进程
 		_pclose(ffmpeg);
 	}
-	void dataTransmit(float _data[9], int _sleepT)
+	void dataTransmit(float _data[DNUM], int _sleepT)
 	{
 		memcpy(frame.fdata, _data, sizeof(frame.fdata));
 		/* 调用fwrite向子程序写字符串 */
