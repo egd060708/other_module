@@ -5,7 +5,7 @@
 #include <Windows.h>
 
 using namespace std;
-#define DNUM 14
+#define DNUM 12
 
 typedef struct _vofaFrame {
 	float fdata[DNUM];
