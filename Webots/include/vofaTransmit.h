@@ -21,22 +21,22 @@ public:
 	VOFA(string _process_path) {
 		process_path = _process_path;
 		string ffmpeg_command = process_path + string(" -addr localhost:") + string("7299");
-		// ´ò¿ª×Ó½ø³Ì
+		// ï¿½ï¿½ï¿½Ó½ï¿½ï¿½ï¿½
 		ffmpeg = _popen(process_path.c_str(), "w");
 	}
 	~VOFA()
 	{
-		// ¹Ø±Õ×Ó½ø³Ì
+		// ï¿½Ø±ï¿½ï¿½Ó½ï¿½ï¿½ï¿½
 		_pclose(ffmpeg);
 	}
 	void dataTransmit(float _data[DNUM], int _sleepT)
 	{
 		memcpy(frame.fdata, _data, sizeof(frame.fdata));
-		/* µ÷ÓÃfwriteÏò×Ó³ÌÐòÐ´×Ö·û´® */
+		/* ï¿½ï¿½ï¿½ï¿½fwriteï¿½ï¿½ï¿½Ó³ï¿½ï¿½ï¿½Ð´ï¿½Ö·ï¿½ï¿½ï¿½ */
 		fwrite(&frame, 1, sizeof(frame), ffmpeg);
-		/* Ë¢ÐÂ»º´æ£¬±ØÐë×ö*/
+		/* Ë¢ï¿½Â»ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 		fflush(ffmpeg);
-		// ÏµÍ³ÐÝÃß
+		// ÏµÍ³ï¿½ï¿½ï¿½ï¿½
 		Sleep(abs(_sleepT));
 	}
 };
